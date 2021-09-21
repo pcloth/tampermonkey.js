@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         移除知乎视频
-// @namespace    https://github.com/pcloth
+// @namespace    https://github.com/pcloth/tampermonkey.js
 // @version      1.0
 // @description  移除知乎视频
 // @author       Pcloth
 // @match        https://www.zhihu.com/
 // @grant        Pcloth
+// @license      MIT
 // ==/UserScript==
 
 
