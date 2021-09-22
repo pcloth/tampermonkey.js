@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         移除知乎视频
+// @name         移除知乎视频和广告
 // @namespace    https://github.com/pcloth/tampermonkey.js
-// @version      1.0
-// @description  移除知乎视频
+// @version      1.1
+// @description  移除知乎视频和广告
 // @author       Pcloth
 // @match        https://www.zhihu.com/
 // @grant        Pcloth
@@ -19,11 +19,19 @@ function __video_parent__(item) {
 	}
 }
 
-// 隐藏视频
+// 隐藏视频和广告
 function hideVideo(node) {
-	let selectors = ['.ContentItem.ZVideoItem', '.ZVideoItem-video', '.VideoAnswerPlayer']
+	let selectors = [
+		// 三种视频格式
+		'.ContentItem.ZVideoItem', 
+		'.ZVideoItem-video', 
+		'.VideoAnswerPlayer',
+		// 广告
+		'.Pc-feedAd-container' 
+	]
 	for (let i in selectors) {
 		node.querySelectorAll(selectors[i]).forEach(item => {
+            console.log(item,'>>>')
 			__video_parent__(item)
 		})
 	}
