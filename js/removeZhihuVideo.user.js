@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         移除知乎视频和广告
 // @namespace    https://github.com/pcloth/tampermonkey.js/raw/master/js/removeZhihuVideo.user.js
-// @version      1.1.2
+// @version      2021.09.24
 // @description  移除知乎视频和广告
 // @author       Pcloth
 // @match        https://www.zhihu.com/
