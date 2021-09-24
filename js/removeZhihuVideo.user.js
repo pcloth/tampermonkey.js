@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         移除知乎视频
 // @namespace    https://github.com/pcloth/tampermonkey.js
-// @version      1.0
+// @version      1.0.1
 // @description  移除知乎视频
 // @author       Pcloth
 // @match        https://www.zhihu.com/
@@ -13,7 +13,7 @@
 // 查找视频节点的父节点，找到答案卡片，直接移除
 function __video_parent__(item) {
 	if (item.parentElement.className.includes('Card TopstoryItem')) {
-		return item.parentElement.remove()
+		return item.parentElement.hidden = true;
 	} else {
 		return __video_parent__(item.parentElement)
 	}
