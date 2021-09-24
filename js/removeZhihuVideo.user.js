@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         移除知乎视频和广告
 // @namespace    https://github.com/pcloth/tampermonkey.js/raw/master/js/removeZhihuVideo.user.js
-// @version      1.1.1
+// @version      1.1.2
 // @description  移除知乎视频和广告
 // @author       Pcloth
 // @match        https://www.zhihu.com/
@@ -19,19 +19,21 @@ function __video_parent__(item) {
 	}
 }
 
+let selectors = [
+	// 视频
+	'.ZVideoItem-video', 
+	'.VideoAnswerPlayer',
+	// 广告
+	'.Pc-feedAd-container' 
+]
+
+let hiddenString = selectors.join(',')
+
 // 隐藏视频和广告
 function hideVideo(node) {
-	let selectors = [
-		// 视频
-		'.ZVideoItem-video', 
-		// 广告
-		'.Pc-feedAd-container' 
-	]
-	for (let i in selectors) {
-		node.querySelectorAll(selectors[i]).forEach(item => {
-			__video_parent__(item)
-		})
-	}
+	node.querySelectorAll(hiddenString).forEach(item => {
+		__video_parent__(item)
+	})
 }
 
 (function() {
