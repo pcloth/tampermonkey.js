@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         移除知乎视频和广告
 // @namespace    https://github.com/pcloth/tampermonkey.js/raw/master/js/removeZhihuVideo.user.js
-// @version      2021.09.24
+// @version      2021.09.25
 // @description  移除知乎视频和广告
 // @author       Pcloth
 // @match        https://www.zhihu.com/
@@ -13,7 +13,8 @@
 // 查找视频节点的父节点，找到答案卡片，直接移除
 function __video_parent__(item) {
 	if (item.parentElement.className.includes('Card TopstoryItem')) {
-		return item.parentElement.hidden = true;
+		item.parentElement.hidden = true;
+		return
 	} else {
 		return __video_parent__(item.parentElement)
 	}
